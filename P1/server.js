@@ -23,7 +23,7 @@ function petition(req, res) {
   //-- Crear mensaje de respuesta
   let filename = "";
   //Parte de query
-  console.log("Pathname: " +  q.pathname)
+  console.log("Pathname: " +  q.pathname);
   if (q.pathname == "/"){
     filename = "index.html";
   }else{
@@ -34,7 +34,9 @@ function petition(req, res) {
   let mime = "";
   if (extension == "jpg") {
     mime = "image/jpg";
-  }else if(extension = "html"){
+  }else if(extension == "html"){
+    mime = "text/html";
+  }else{
     mime = "text/html";
   }
   //_- Crear el mensaje de respuesta. Primero la cabecera
@@ -43,31 +45,30 @@ function petition(req, res) {
   //-- de lo que devolvemos
 
   //Leer fihchero html
-  console.log()
-  fs.readFile(filename, 'utf8', (err, data) => {
+  fs.readFile(filename, (err, data) => {
 
     //--Fichero no encontrado
     if (err) {
       res.writeHead(404, {'Content-Type': 'text/html'});
       return res.end("404 Not Found");
-    }
+    };
 
     //-- Tipo mime por defecto html
     res.writeHead(200, {'Content-Type': mime});
     return res.end(data);
   });
 
-}
+};
 
 
 //-- Inicializar el servidor
 //-- Cada vez que recibe una petición
 //-- invoca a la funcion peticion para atenderla
-const server = http.createServer(petition)
+const server = http.createServer(petition);
 
 //-- Configurar el servidor para escuchar en el
 //-- puerto establecido
 server.listen(PUERTO);
 
-console.log("Servidor LISTO!")
-console.log("Escuchando en puerto: " + PUERTO)
+console.log("Servidor LISTO!");
+console.log("Escuchando en puerto: " + PUERTO);
