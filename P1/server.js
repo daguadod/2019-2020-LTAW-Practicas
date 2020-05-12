@@ -21,28 +21,30 @@ function petition(req, res) {
   let q = url.parse(req.url, true);
 
   //-- Crear mensaje de respuesta
-
+  let filename = "";
   //Parte de query
   console.log("Pathname: " +  q.pathname)
-  console.log("search: " + q.search)
-  console.log("Búsqueda:")
-  let qdata = q.query
-  console.log(qdata)
+  if (q.pathname == "/"){
+    filename = "index.html";
+  }else{
+    filename = q.pathname.substr(1);
+  };
 
-  //-- Acceso al objeto
-  console.log("Artículo: " + qdata.articulo)
-  console.log("Color: " + qdata.color)
-
+  let extension = filename.split(".")[1];
+  let mime = "";
+  if (extension == "jpg") {
+    mime = "image/jpg";
+  }else if(extension = "html"){
+    mime = "text/html";
+  }
   //_- Crear el mensaje de respuesta. Primero la cabecera
   //-- El código 200 se usa para indicar que todo está ok
   //-- En el campo Content-Type tenemos que introducir el tipo MIME
   //-- de lo que devolvemos
-  let mime = "text/html"
-  res.writeHead(200, {'Content-Type': mime});
 
   //Leer fihchero html
   console.log()
-  fs.readFile('index1.html', 'utf8', (err, data) => {
+  fs.readFile(filename, 'utf8', (err, data) => {
 
     //--Fichero no encontrado
     if (err) {
@@ -51,9 +53,8 @@ function petition(req, res) {
     }
 
     //-- Tipo mime por defecto html
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
+    res.writeHead(200, {'Content-Type': mime});
+    return res.end(data);
   });
 
 }
