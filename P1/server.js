@@ -32,12 +32,24 @@ function petition(req, res) {
 
   let extension = filename.split(".")[1];
   let mime = "";
-  if (extension == "jpg") {
-    mime = "image/jpg";
-  }else if(extension == "html"){
-    mime = "text/html";
-  }else{
-    mime = "text/html";
+  switch (extension) {
+    case "jpg":
+      mime = "imagen/jpg";
+    case "png":
+      mime = "imagen/png";
+    case "gif":
+      mime = "imagen/gif";
+    case "ico":
+      mime = "imagen/ico";
+    case "html":
+      mime = "text/html";
+    case "css":
+      mime = "text/css";
+    case "json":
+      mime = "application/json";
+    default:
+      mime = "text/html";
+    break;
   }
   //_- Crear el mensaje de respuesta. Primero la cabecera
   //-- El código 200 se usa para indicar que todo está ok
