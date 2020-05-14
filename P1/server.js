@@ -25,7 +25,7 @@ function petition(req, res) {
   //Parte de query
   console.log("Pathname: " +  q.pathname);
   if (q.pathname == "/"){
-    filename = "index.html";
+    filename = "Web_1.html";
   }else{
     filename = q.pathname.substr(1);
   };
@@ -35,21 +35,27 @@ function petition(req, res) {
   switch (extension) {
     case "jpg":
       mime = "imagen/jpg";
+      break;
     case "png":
       mime = "imagen/png";
+      break;
     case "gif":
       mime = "imagen/gif";
+      break;
     case "ico":
       mime = "imagen/ico";
+      break;
     case "html":
       mime = "text/html";
+      break;
     case "css":
       mime = "text/css";
+      break;
     case "json":
       mime = "application/json";
+      break;
     default:
       mime = "text/html";
-    break;
   }
   //_- Crear el mensaje de respuesta. Primero la cabecera
   //-- El código 200 se usa para indicar que todo está ok
