@@ -17,6 +17,9 @@ let x = -1;
 function petition(req, res) {
 
   resultado = "";
+
+  //COOOKIEEES
+  const cookie = req.headers.cookie;
   //-- Peticion recibida
   console.log("Peticion recibida");
   console.log("Recurso solucitado (URL): " + req.url)
@@ -79,10 +82,32 @@ function petition(req, res) {
                 res.write(data);
                 return res.end();
               }
-         })
-      })
-      return
-    }
+            })
+          })
+          return
+        }
+      break;
+    case "/registro":
+      if (req.method === 'POST') {
+        req.on('data', chunk => {
+          //-- Leer los datos (convertir el buffer a cadena)
+          data = chunk.toString();
+          console.log(data);
+          parametro1 = data.split("=")[1].split("&")[0];
+          parametro2 = data.split("&")[1].split("=")[1];
+        })
+        filename = "Web_1.html";
+        req.on('end', () => {
+          fs.readFile(filename, (err, data) => {
+              //-- Tipo mime por defecto html
+              res.setHeader("Set-Cookie", parametro1 + "=" + parametro2);
+              res.writeHead(200, {'Content-Type': "text/html"});
+              res.write(data);
+              return res.end();
+          })
+        })
+        return
+      }
       break;
     case "/myquery":
       const params = q.query;
@@ -95,7 +120,7 @@ function petition(req, res) {
         x = productos[i].toLowerCase().indexOf(params.param1.toLowerCase());
         //-- Añadir cada producto al párrafo de visualización
         if (x == 0){
-          resultado += productos[i] + ", ";
+          resultado += productos[i];
         }
       }
       content = JSON.stringify(resultado) + '\n';

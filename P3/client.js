@@ -6,6 +6,9 @@ const busqueda = document.getElementById('busqueda');
 
 //-- Cuando el usuario aprieta el botón de ver los productos
 busqueda.onkeyup = ()=>{
+  //-- Borrar el resultado anterior que hubiese en el párrafo
+  //-- de resultado
+  resultado.innerHTML = "";
   if (busqueda.value.length >= 3) {
     //-- Crear objeto para hacer peticiones AJAX
     const m = new XMLHttpRequest();
@@ -22,10 +25,6 @@ busqueda.onkeyup = ()=>{
 
          //-- La respuesta es un objeto JSON
          let productos = JSON.parse(m.responseText);
-
-         //-- Borrar el resultado anterior que hubiese en el párrafo
-         //-- de resultado
-         resultado.innerHTML = "";
 
          //--Recorrer los productos del objeto JSON
          for (let i=0; i < productos.length; i++) {
