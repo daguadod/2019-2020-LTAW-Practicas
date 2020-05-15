@@ -102,6 +102,7 @@
 		font-family: STARWARS;
 		font-size: 60px;
 		background-color: white;
+		text-align: center;
 	}
 	#contrasena{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
@@ -116,6 +117,7 @@
 		font-family: STARWARS;
 		font-size: 60px;
 		background-color: white;
+		text-align: center;
 	}
 	#comprar{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
@@ -130,6 +132,7 @@
 		font-family: STARWARS;
 		font-size: 60px;
 		background-color:white;
+		text-align: center;
 	}
 	#JJB2 {
 		position: absolute;
