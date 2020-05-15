@@ -6,37 +6,37 @@ const busqueda = document.getElementById('busqueda');
 
 //-- Cuando el usuario aprieta el botón de ver los productos
 busqueda.onkeyup = ()=>{
+  if (busqueda.value.length >= 3) {
+    //-- Crear objeto para hacer peticiones AJAX
+    const m = new XMLHttpRequest();
 
-  //-- Crear objeto para hacer peticiones AJAX
-  const m = new XMLHttpRequest();
+    //-- Configurar la petición
 
-  //-- Configurar la petición
+    m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
 
-  m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
+    //-- Cuando la haya alguna noticia sobre la peticion
+    //-- ejecuta este código
+    m.onreadystatechange=function(){
+       //-- Petición enviada y recibida. Todo OK!
+       if (m.readyState==4 && m.status==200){
 
-  //-- Cuando la haya alguna noticia sobre la peticion
-  //-- ejecuta este código
-  m.onreadystatechange=function(){
-     //-- Petición enviada y recibida. Todo OK!
-     if (m.readyState==4 && m.status==200){
+         //-- La respuesta es un objeto JSON
+         let productos = JSON.parse(m.responseText);
 
-       //-- La respuesta es un objeto JSON
-       let productos = JSON.parse(m.responseText);
+         //-- Borrar el resultado anterior que hubiese en el párrafo
+         //-- de resultado
+         resultado.innerHTML = "";
 
-       //-- Borrar el resultado anterior que hubiese en el párrafo
-       //-- de resultado
-       resultado.innerHTML = "";
+         //--Recorrer los productos del objeto JSON
+         for (let i=0; i < productos.length; i++) {
 
-       //--Recorrer los productos del objeto JSON
-       for (let i=0; i < productos.length; i++) {
+           //-- Añadir cada producto al párrafo de visualización
+           resultado.innerHTML += productos[i];
 
-         //-- Añadir cada producto al párrafo de visualización
-         resultado.innerHTML += productos[i];
-
+         }
        }
      }
-   }
-
-   //-- Enviar la petición!
-   m.send();
+     //-- Enviar la petición!
+     m.send();
+  }
 }

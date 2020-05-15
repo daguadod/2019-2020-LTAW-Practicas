@@ -31,6 +31,59 @@ function petition(req, res) {
     case "/":
       filename = "Web_1.html";
       break;
+    case "/myform":
+      if (req.method === 'POST') {
+        var content = "";
+        var parametro = "";
+        resultado = "";
+        req.on('data', chunk => {
+            //-- Leer los datos (convertir el buffer a cadena)
+            data = chunk.toString();
+            //-- Añadir los datos a la respuesta
+            content += data;
+            //-- Mostrar los datos en la consola del servidor
+            console.log("Datos recibidos: " + data)
+            parametro = content.split("=")[1];
+            for (let i=0; i < productos.length; i++) {
+              x = -1;
+              x = productos[i].indexOf(parametro);
+              //-- Añadir cada producto al párrafo de visualización
+              if (x == 0){
+                resultado = productos[i];
+              }
+            }
+            switch (resultado) {
+              case "camiseta":
+                filename = "Web_2.html";
+                break;
+              case "zapatilla":
+                filename = "Web_3.html";
+                break;
+              case "gorra":
+                filename = "Web_4.html";
+                break;
+              default:
+               console.log("Sdfsdf");
+            }
+          });
+          req.on('end', ()=> {
+            fs.readFile(filename, (err, data) => {
+              ///--Fichero no encontrado
+              if (err) {
+                res.writeHead(404, {'Content-Type': 'text/html'});
+                res.write("<h1>Product doesnt exist</h1>");
+                return res.end();
+              }else {
+                //-- Tipo mime por defecto html
+                res.writeHead(200, {'Content-Type': "text/html"});
+                res.write(data);
+                return res.end();
+              }
+         })
+      })
+      return
+    }
+      break;
     case "/myquery":
       const params = q.query;
       console.log(params.param1);
@@ -39,11 +92,10 @@ function petition(req, res) {
       //--Recorrer los productos del objeto JSON
       for (let i=0; i < productos.length; i++) {
         x = -1;
-        x = productos[i].indexOf(params.param1);
+        x = productos[i].toLowerCase().indexOf(params.param1.toLowerCase());
         //-- Añadir cada producto al párrafo de visualización
-        console.log(x);
         if (x == 0){
-          resultado += productos[i];
+          resultado += productos[i] + ", ";
         }
       }
       content = JSON.stringify(resultado) + '\n';
@@ -58,8 +110,8 @@ function petition(req, res) {
     default:
       filename = q.pathname.substr(1);
   }
-
   let extension = filename.split(".")[1];
+  console.log(extension);
   let mime = "";
   switch (extension) {
     case "js":
@@ -92,8 +144,7 @@ function petition(req, res) {
   //-- El código 200 se usa para indicar que todo está ok
   //-- En el campo Content-Type tenemos que introducir el tipo MIME
   //-- de lo que devolvemos
-  console.log(filename);
-  if (q.pathname != "/myquery") {
+  if (q.pathname != "/myquery" | q.pathname != "/myform") {
     //Leer fihchero html
     fs.readFile(filename, (err, data) => {
 
