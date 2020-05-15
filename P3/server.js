@@ -95,18 +95,64 @@ function petition(req, res) {
           console.log(data);
           parametro1 = data.split("=")[1].split("&")[0];
           parametro2 = data.split("&")[1].split("=")[1];
+          new_user = true;
         })
         filename = "Web_1.html";
         req.on('end', () => {
           fs.readFile(filename, (err, data) => {
             //-- Tipo mime por defecto html
-             for (var i = 0; i < cookie.split("; ").length; i++) {
-               if (cookie.split("; ")[i].split("=")[0] == parametro1) {
-                 break;
-               }else{
-                 res.setHeader("Set-Cookie", parametro1 + "=" + parametro2);
-               }
-             }
+            if(cookie){
+              for (var i = 0; i < cookie.split("; ").length; i++) {
+                if (cookie.split("; ")[i].split("=")[0] == parametro1) {
+                  new_user = false;
+                  break;
+                }
+              }
+              if (new_user) {
+                res.setHeader("Set-Cookie", parametro1 + "=" + "");
+              }
+            }else{
+              res.setHeader("Set-Cookie", parametro1 + "=" + "");
+            }
+            res.writeHead(200, {'Content-Type': "text/html"});
+            res.write(data);
+            return res.end();
+          })
+        })
+        return
+      }
+      break;
+    case "/compra":
+      if (req.method === 'POST') {
+        req.on('data', chunk => {
+          //-- Leer los datos (convertir el buffer a cadena)
+          data = chunk.toString();
+          console.log(data);
+          parametro1 = data.split("=")[0];
+          parametro2 = data.split("=")[1];
+          new_user = true;
+          //-- Tipo mime por defecto html
+          if(cookie){
+            content = "";
+            for (var i = 0; i < cookie.split("; ").length; i++) {
+              if (cookie.split("; ")[i].split("=")[0] == parametro2) {
+                new_user = false;
+                console.log(cookie.split("; ")[i].split("=")[1]);
+                content = cookie.split("; ")[i].split("=")[1] += parametro1 += "/";
+                res.setHeader("Set-Cookie", parametro2 + "=" + content);
+                filename = "Web_1.html";
+                break;
+              }
+            }
+            if (new_user) {
+              filename = "sesion.html";
+            }
+          }else{
+            filename = "sesion.html";
+          }
+        })
+        req.on('end', () => {
+          fs.readFile(filename, (err, data) => {
             res.writeHead(200, {'Content-Type': "text/html"});
             res.write(data);
             return res.end();

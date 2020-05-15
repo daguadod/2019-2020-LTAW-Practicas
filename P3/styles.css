@@ -24,6 +24,7 @@
 		src: url(Lato-BlackItalic.ttf) format("truetype");
 	}
 	#boton{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 		position: absolute;
 		overflow: visible;
 		top: 750px;
@@ -31,6 +32,20 @@
 		height: 100px;
 		width: 300px;
 		font-size: 40px;
+		background-color: black;
+		color: yellow;
+	}
+	#boton1{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
+		position: absolute;
+		overflow: visible;
+		left: 1550px;
+		top: 850px;
+		height: 100px;
+		width: 300px;
+		font-size: 30px;
+		background-color: black;
+		color: yellow;
 	}
 	#nombretxt{
 		position: absolute;
@@ -51,6 +66,7 @@
 		color: yellow;
 	}
 	#busqueda{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 		position: absolute;
 		overflow: visible;
 		height: 50px;
@@ -62,7 +78,7 @@
 		border-radius: 0;
 		font-family: STARWARS;
 		font-size: 40px;
-		background-color: grey;
+		background-color: white;
 		color: yellow;
 	}
 	#resultado{
@@ -74,6 +90,7 @@
 		left: 1600px;
 	}
 	#nombre{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
 		position: absolute;
 		overflow: visible;
 		height: 100px;
@@ -84,9 +101,10 @@
 		border-radius: 5px;
 		font-family: STARWARS;
 		font-size: 60px;
-		background-color: grey;
+		background-color: white;
 	}
 	#contrasena{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
 		position: absolute;
 		overflow: visible;
 		height: 100px;
@@ -97,7 +115,21 @@
 		border-radius: 5px;
 		font-family: STARWARS;
 		font-size: 60px;
-		background-color:grey;
+		background-color: white;
+	}
+	#comprar{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
+		position: absolute;
+		overflow: visible;
+		height: 100px;
+		width: 500px;
+		left: 1050px;
+		top: 850px;
+		border: 10px solid: yellow;
+		border-radius: 5px;
+		font-family: STARWARS;
+		font-size: 60px;
+		background-color:white;
 	}
 	#JJB2 {
 		position: absolute;
@@ -453,6 +485,13 @@
 		font-weight: normal;
 		font-size: 70px;
 		color: rgba(0,0,0,1);
+	}
+	.RECTANGULO4 {
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
+		position: absolute;
+		overflow: visible;
+		left: 1050px;
+		top: 850px;
 	}
 	.RECTANGULO3_B {
 		position: absolute;
