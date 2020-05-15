@@ -6,16 +6,17 @@ const PUERTO = 8080;
 const url = require('url');
 //-- Acceso al módulo fs, para lectura de ficheros
 const fs = require('fs');
-
 console.log("Arrancando servidor...")
 
-let productos = ["FPGA-1", "RISC-V", "74ls00", "FPGA-2", "74ls01", "AVR", "Arduino-UNO"];
-
+let productos = ["camiseta", "zapatilla", "gorra"];
+let resultado = "";
+let x = -1;
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
 //-- res: Mensaje de respuesta
 function petition(req, res) {
 
+  resultado = "";
   //-- Peticion recibida
   console.log("Peticion recibida");
   console.log("Recurso solucitado (URL): " + req.url)
@@ -31,9 +32,21 @@ function petition(req, res) {
       filename = "Web_1.html";
       break;
     case "/myquery":
+      const params = q.query;
+      console.log(params.param1);
       //-- El array de productos lo pasamos a una cadena de texto,
       //-- en formato JSON:
-      content = JSON.stringify(productos) + '\n';
+      //--Recorrer los productos del objeto JSON
+      for (let i=0; i < productos.length; i++) {
+        x = -1;
+        x = productos[i].indexOf(params.param1);
+        //-- Añadir cada producto al párrafo de visualización
+        console.log(x);
+        if (x == 0){
+          resultado += productos[i];
+        }
+      }
+      content = JSON.stringify(resultado) + '\n';
       //-- Generar el mensaje de respuesta
       //-- IMPORTANTE! Hay que indicar que se trata de un objeto JSON
       //-- en la cabecera Content-Type

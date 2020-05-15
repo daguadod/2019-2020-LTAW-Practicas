@@ -1,17 +1,18 @@
 //-- Obtener el botón de VER del DOM
-const ver = document.getElementById('ver')
-
-//-- Obtener el párrafo del DOM donde mostrar el resultado
 const resultado = document.getElementById('resultado');
 
+//-- Obtener el párrafo del DOM donde mostrar el resultado
+const busqueda = document.getElementById('busqueda');
+
 //-- Cuando el usuario aprieta el botón de ver los productos
-ver.onclick = ()=>{
+busqueda.onkeyup = ()=>{
 
   //-- Crear objeto para hacer peticiones AJAX
   const m = new XMLHttpRequest();
 
   //-- Configurar la petición
-  m.open("GET","http://localhost:8080/myquery?param1=hola&param2=wei", true);
+
+  m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
 
   //-- Cuando la haya alguna noticia sobre la peticion
   //-- ejecuta este código
@@ -32,10 +33,6 @@ ver.onclick = ()=>{
          //-- Añadir cada producto al párrafo de visualización
          resultado.innerHTML += productos[i];
 
-         //-- Separamos los productos por ',''
-         if (i < productos.length-1) {
-           resultado.innerHTML += ', ';
-         }
        }
      }
    }
