@@ -99,11 +99,17 @@ function petition(req, res) {
         filename = "Web_1.html";
         req.on('end', () => {
           fs.readFile(filename, (err, data) => {
-              //-- Tipo mime por defecto html
-              res.setHeader("Set-Cookie", parametro1 + "=" + parametro2);
-              res.writeHead(200, {'Content-Type': "text/html"});
-              res.write(data);
-              return res.end();
+            //-- Tipo mime por defecto html
+             for (var i = 0; i < cookie.split("; ").length; i++) {
+               if (cookie.split("; ")[i].split("=")[0] == parametro1) {
+                 break;
+               }else{
+                 res.setHeader("Set-Cookie", parametro1 + "=" + parametro2);
+               }
+             }
+            res.writeHead(200, {'Content-Type': "text/html"});
+            res.write(data);
+            return res.end();
           })
         })
         return
