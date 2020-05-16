@@ -14,7 +14,6 @@ busqueda.onkeyup = ()=>{
     const m = new XMLHttpRequest();
 
     //-- Configurar la petición
-
     m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
 
     //-- Cuando la haya alguna noticia sobre la peticion

@@ -47,21 +47,46 @@
 		background-color: black;
 		color: yellow;
 	}
+	#boton2{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
+		position: absolute;
+		overflow: visible;
+		left: 330px;
+		top: 575px;
+		height: 50px;
+		width: 150px;
+		font-size: 30px;
+		background-color: black;
+		color: yellow;
+	}
+	#boton3{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
+		position: absolute;
+		overflow: visible;
+		top: 800px;
+		left: 800px;
+		height: 100px;
+		width: 500px;
+		font-size: 40px;
+		background-color: black;
+		color: yellow;
+		text-align: center;
+	}
 	#nombretxt{
 		position: absolute;
 		overflow: visible;
-		top: 350px;
-		left: 800px;
-		font-size: 40px;
+		top: 310px;
+		left: 550px;
+		font-size: 70px;
 		font-family: STARWARS;
 		color: yellow;
 	}
 	#contrasenatxt{
 		position: absolute;
 		overflow: visible;
-		top: 550px;
-		left: 800px;
-		font-size: 40px;
+		top: 510px;
+		left: 550px;
+		font-size: 70px;
 		font-family: STARWARS;
 		color: yellow;
 	}
@@ -71,32 +96,33 @@
 		overflow: visible;
 		height: 50px;
 		width: 300px;
-		top: 970px;
-		right: 30px;
+		top: 575px;
+		left: 30px;
 		border: 1px;
 		border-color: yellow;
 		border-radius: 0;
 		font-family: STARWARS;
 		font-size: 40px;
 		background-color: white;
-		color: yellow;
+		color: black;
 	}
 	#resultado{
 		position: absolute;
 		overflow: visible;
-		top: 900px;
+		top: 635px;
 		font-family: JARJAR;
 		font-size: 40px;
-		left: 1600px;
+		left: 30px;
+		color: black;
 	}
-	#nombre{
+	#name{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
 		position: absolute;
 		overflow: visible;
 		height: 100px;
-		width: 500px;
+		width: 1000px;
 		top: 400px;
-		left: 800px;
+		left: 550px;
 		border: 10px solid: yellow;
 		border-radius: 5px;
 		font-family: STARWARS;
@@ -104,14 +130,70 @@
 		background-color: white;
 		text-align: center;
 	}
+	#apellido{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
+		position: absolute;
+		overflow: visible;
+		height: 100px;
+		width: 1000px;
+		top: 500px;
+		left: 550px;
+		border: 10px solid: yellow;
+		border-radius: 5px;
+		font-family: STARWARS;
+		font-size: 60px;
+		background-color: white;
+		text-align: center;
+	}
+	#correo{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
+		position: absolute;
+		overflow: visible;
+		height: 100px;
+		width: 1000px;
+		top: 600px;
+		left: 550px;
+		border: 10px solid: yellow;
+		border-radius: 5px;
+		font-family: STARWARS;
+		font-size: 60px;
+		background-color: white;
+		text-align: center;
+	}
+	#pago{
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
+		position: absolute;
+		overflow: visible;
+		height: 100px;
+		width: 1000px;
+		top: 700px;
+		left: 550px;
+		border: 10px solid: yellow;
+		border-radius: 5px;
+		font-family: STARWARS;
+		font-size: 60px;
+		background-color: white;
+		text-align: center;
+	}
+	#productos{
+		position: absolute;
+		overflow: visible;
+		height: 100px;
+		width: 1000px;
+		top: 800px;
+		left: 550px;
+		font-family: STARWARS;
+		font-size: 60px;
+		text-align: center;
+	}
 	#contrasena{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
 		position: absolute;
 		overflow: visible;
 		height: 100px;
-		width: 500px;
+		width: 1000px;
 		top: 600px;
-		left: 800px;
+		left: 550px;
 		border: 10px solid: yellow;
 		border-radius: 5px;
 		font-family: STARWARS;
@@ -139,13 +221,13 @@
 		width: 2109px;
 		height: 600px;
 		right: 0px;
-		top: 450px;
+		top: 650px;
 		overflow: visible;
 	}
 	#jar_jar_binks {
 		position: absolute;
 		left: 0px;
-		top: 545px;
+		top: 700px;
 		width: 500px;
 		height: 505px;
 		overflow: visible;
@@ -291,6 +373,14 @@
 		left: -1px;
 		top: -1px;
 	}
+	.RECTANGULO1_BC {
+		position: absolute;
+		overflow: visible;
+		width: 1920px;
+		height: 138px;
+		left: -1px;
+		top: 525px;
+	}
 	#INICIO {
 		position: absolute;
 		left: 959px;
@@ -308,7 +398,7 @@
 	#j {
 		position: absolute;
 		left: 59.5px;
-		top: -7px;
+		top: 7px;
 		overflow: visible;
 		width: 35px;
 		white-space: nowrap;
@@ -319,18 +409,41 @@
 		font-size: 80px;
 		color: rgba(255,235,35,1);
 	}
-	#B {
+	#b {
 		position: absolute;
-		left: 94px;
-		top: -7px;
+		right: 90px;
+		top: 7px;
 		overflow: visible;
-		width: 74px;
+		width: 35px;
 		white-space: nowrap;
 		text-align: center;
 		font-family: JARJAR;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 80px;
+		color: rgba(255,235,35,1);
+	}
+	#c {
+		position: absolute;
+		right: 90px;
+		top: 550px;
+		overflow: visible;
+		width: 35px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: JARJAR;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 80px;
+		color: rgba(255,235,35,1);
+	}
+	#d {
+		position: absolute;
+		right: 160px;
+		top: 580px;
+		overflow: visible;
+		font-size: 40px;
+		text-align: center;
 		color: rgba(255,235,35,1);
 	}
 	#producto {

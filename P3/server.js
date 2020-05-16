@@ -66,7 +66,6 @@ function petition(req, res) {
                 filename = "Web_4.html";
                 break;
               default:
-               console.log("Sdfsdf");
             }
           });
           req.on('end', ()=> {
@@ -109,7 +108,7 @@ function petition(req, res) {
                 }
               }
               if (new_user) {
-                res.setHeader("Set-Cookie", parametro1 + "=" + "");
+                res.setHeader("Set-Cookie", parametro1 + "=" +  "");
               }
             }else{
               res.setHeader("Set-Cookie", parametro1 + "=" + "");
@@ -137,7 +136,6 @@ function petition(req, res) {
             for (var i = 0; i < cookie.split("; ").length; i++) {
               if (cookie.split("; ")[i].split("=")[0] == parametro2) {
                 new_user = false;
-                console.log(cookie.split("; ")[i].split("=")[1]);
                 content = cookie.split("; ")[i].split("=")[1] += parametro1 += "/";
                 res.setHeader("Set-Cookie", parametro2 + "=" + content);
                 filename = "Web_1.html";
@@ -157,6 +155,96 @@ function petition(req, res) {
             res.write(data);
             return res.end();
           })
+        })
+        return
+      }
+      break;
+    case "/carrito":
+      if (req.method === 'POST') {
+        var parametro = "";
+        resultado = "";
+        var content = ``;
+        req.on('data', chunk => {
+          data = chunk.toString();
+          parametro1 = data.split("&")[0].split("=")[1];
+          parametro2 = data.split("&")[1].split("=")[1];
+          parametro3 = data.split("&")[2].split("=")[1];
+          parametro4 = data.split("&")[3].split("=")[1];
+          content = `
+          <!DOCTYPE html>
+          <html>
+          	<head>
+          		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+          		<title>REGISTRO</title>
+          		<link rel="Stylesheet" type="text/css" href="styles.css"/>
+          		<link rel="shortcut icon" href="LOGO.png">
+          	</head>
+          	<body>
+          		<div id="Web_2">
+          			<svg class="RECTANGULO1_B">
+          				<rect fill="rgba(0,0,0,1)" rx="0" ry="0" x="0" y="0" width="1920" height="138">
+          				</rect>
+          			</svg>
+          			<div id="INICIO">
+          				<a class = "Hypertext" href="Web_1.html"><span>INICIO</span></a>
+          			</div>
+          			<div id="j">
+          			<a class = "Hypertext" href="Web_1.html"><img id="J" src="JB.png"></a>
+          			</div>
+          		  <p id="nombretxt">AQUI TIENE SUS DATOS:</p>
+                <p id="name">Nombre: `
+          content += parametro1 += `</p><br><p id="apellido">Apellido:`
+          content += parametro2 += `</p><br><p id="correo">Correo: `
+          content += parametro3 += `</p><br><p id="pago">Pago: `
+          content += parametro4 += `</p><br><p id="productos">Tus productos son: `
+          new_user = true;
+          parametro1 = data.split("&")[0].split("=")[1];
+          parametro2 = data.split("&")[1].split("=")[1];
+          parametro3 = data.split("&")[2].split("=")[1];
+          parametro4 = data.split("&")[3].split("=")[1];
+          //-- Tipo mime por defecto html
+          if(cookie){
+            for (var i = 0; i < cookie.split("; ").length; i++) {
+              if (cookie.split("; ")[i].split("=")[0] == parametro1) {
+                console.log(cookie.split("; ")[i]);
+                products = cookie.split("; ")[i].split("=")[1];
+                content += products += `</p><br>`
+                content +=
+                     `<svg class="RECTANGULO3_B">
+                				<rect fill="rgba(0,0,0,1)" rx="0" ry="0" x="0" y="0" width="1920" height="179">
+                				</rect>
+                			</svg>
+                			<div id="Contacto2">
+                				<span>Contacto</span><br><span style="font-style:normal;font-weight:normal;">Tlf: 68899955<br/>Email : jarjarbinks_shop.jarjar.es</span>
+                			</div>
+                		</div>
+                	</body>
+                </html> `
+                new_user = false;
+                break;
+              }
+            }
+            if (new_user) {
+              filename = "sesion.html";
+            }
+          }else{
+            filename = "sesion.html";
+          }
+        })
+        req.on('end', ()=> {
+          if (new_user) {
+            fs.readFile(filename, (err, data) => {
+              //-- Tipo mime por defecto html
+              res.writeHead(200, {'Content-Type': "text/html"});
+              res.write(data);
+              return res.end();
+            })
+          }else{
+            //-- Tipo mime por defecto html
+            res.writeHead(200, {'Content-Type': "text/html"});
+            res.write(content);
+            return res.end();
+          }
         })
         return
       }
