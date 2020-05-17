@@ -544,20 +544,6 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#M {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
-	}
 	#Grupo_6 {
 		position: absolute;
 		width: 137px;
@@ -566,20 +552,6 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#L {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
-	}
 	#Grupo_7 {
 		position: absolute;
 		width: 137px;
@@ -587,20 +559,6 @@
 		left: 645px;
 		top: 0px;
 		overflow: visible;
-	}
-	#XL {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
 	}
 	.RECTANGULO4 {
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
