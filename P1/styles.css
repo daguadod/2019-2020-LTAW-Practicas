@@ -197,23 +197,9 @@
 	#j {
 		position: absolute;
 		left: 59.5px;
-		top: -7px;
+		top: 7px;
 		overflow: visible;
 		width: 35px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: JARJAR;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 80px;
-		color: rgba(255,235,35,1);
-	}
-	#B {
-		position: absolute;
-		left: 94px;
-		top: -7px;
-		overflow: visible;
-		width: 74px;
 		white-space: nowrap;
 		text-align: center;
 		font-family: JARJAR;
@@ -320,20 +306,6 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#M {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
-	}
 	#Grupo_6 {
 		position: absolute;
 		width: 137px;
@@ -342,20 +314,6 @@
 		top: 0px;
 		overflow: visible;
 	}
-	#L {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
-	}
 	#Grupo_7 {
 		position: absolute;
 		width: 137px;
@@ -363,20 +321,6 @@
 		left: 645px;
 		top: 0px;
 		overflow: visible;
-	}
-	#XL {
-		position: absolute;
-		left: 0px;
-		top: 25.5px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
-		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 70px;
-		color: rgba(0,0,0,1);
 	}
 	.RECTANGULO3_B {
 		position: absolute;
