@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  {% for product in productos%}
+    <svg class="{% cycle 'RECTANGULO1' 'RECTANGULO2' 'RECTANGULO3' %}">
+      <rect fill="rgba(255,255,255,1)" id="{% cycle 'Rect_ngulo_18' 'Rect_ngulo_18_' 'Rect_ngulo_18_ba' %}" rx="64" ry="64" x="0" y="0" width="466" height="477">
+      </rect>
+    </svg>
+    <a href="{{ product.name }}_product"><img id="{% cycle 'Imagen_1' 'Imagen_2' 'Imagen_3' %}" src="{% static product.get_path %}"></a>
+    <div id="{% cycle 'CAMISETAS' 'ZAPATILLAS' 'COMPLEMENTOS' %}">
+      <span>{{ product.name | title}}</span>
+    </div>
+  {% endfor %}
+{% endblock %}

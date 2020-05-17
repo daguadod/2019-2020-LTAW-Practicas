@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JARJAR-SHOP</title>
+<link rel="Stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+<link rel="shortcut icon" href="{% static 'image/LOGO.png' %}">
+</head>
+<body>
+<div id="Web_1">
+	<img id="JJB2" src="{% static 'image/JJB2.png' %}">
+	<div id="jar_jar_binks">
+		<span> jar jar <br/>binks</span>
+	</div>
+  {% block content %}
+  {% endblock %}
+<svg class="RECTANGULO_CONTACTO">
+  <rect fill="rgba(0,0,0,1)" id="Rect_ngulo_20" rx="0" ry="0" x="0" y="0" width="1920" height="187">
+  </rect>
+</svg>
+<div id="Contacto1">
+  <span>Contacto</span><br><span font-weigh= normal;>Tlf: 68899955<br/>Email : jarjarbinksshop.jarjar.es</span>
+</div>
+</div>
+</body>
+</html>

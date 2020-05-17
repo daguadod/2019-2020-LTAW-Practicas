@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <img id="producto" src="{% static producto.get_path %}">
+  <img id="circulo" src ="{% static producto.mesa_trabajo %}">
+  <div id="TEXTO">
+    <span>{{producto.description}}</span>
+  </div>
+  <div id="prize">
+    <span>{{producto.name | title}} {{producto.prize}} € </span>
+  </div>
+  <div id="Grupo_8">
+    <div id="Grupo_4">
+      <svg class="RECTANGULO2_B">
+        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
+        </rect>
+      </svg>
+      <div id="S">
+        <span>S</span>
+      </div>
+    </div>
+    <div id="Grupo_5">
+      <svg class="RECTANGULO2_B">
+        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
+        </rect>
+      </svg>
+      <div id="S">
+        <span>M</span>
+      </div>
+    </div>
+    <div id="Grupo_6">
+      <svg class="RECTANGULO2_B">
+        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
+        </rect>
+      </svg>
+      <div id="S">
+        <span>L</span>
+      </div>
+    </div>
+    <div id="Grupo_7">
+      <svg class="RECTANGULO2_B">
+        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
+        </rect>
+      </svg>
+      <div id="S">
+        <span>XL</span>
+      </div>
+    </div>
+{% endblock %}
