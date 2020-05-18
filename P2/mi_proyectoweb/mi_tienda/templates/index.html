@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<form id="formulario" action="myform" method="post">
+  {% csrf_token %}
+  <input type="text" id="busqueda" name="Busqueda" placeholder="Buscar..." autocomplete="off"/> <br/>
+  <input type="submit" id="boton" value="Buscar"/>
+  <p id="resultado"></p>
+</form>
   {% for product in productos%}
     <svg class="{% cycle 'RECTANGULO1' 'RECTANGULO2' 'RECTANGULO3' %}">
       <rect fill="rgba(255,255,255,1)" id="{% cycle 'Rect_ngulo_18' 'Rect_ngulo_18_' 'Rect_ngulo_18_ba' %}" rx="64" ry="64" x="0" y="0" width="466" height="477">

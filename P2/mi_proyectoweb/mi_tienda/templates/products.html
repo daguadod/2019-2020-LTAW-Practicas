@@ -45,5 +45,13 @@
       <div id="S">
         <span>XL</span>
       </div>
+      <form id="registro" action="compra" method="post">
+        {% csrf_token %}
+        <input id="registro1"type="text" name="nombre" value="" placeholder="Nombre"required/><br><br><br><br>
+        <input id="registro2"type="password" name="contrasena" value="" placeholder="Contraseña"required/><br><br><br><br>
+        <input id="registro3"type="email" name="correo" value="" placeholder="Correo"required/><br><br><br><br>
+  			<input id="registro4"type="text" id="comprar" name="producto" value="{{producto.name}}" readonly/><br><br><br><br>
+  	    <input id="boton_registro"type="submit" id="boton1" value="Añadir a la cesta"/>
+  		</form>
     </div>
 {% endblock %}
