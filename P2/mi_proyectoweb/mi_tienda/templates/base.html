@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<!-- Plantilla principal de nuestra aplicación (De esta plantilla derivan todas las páginas) -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,23 @@
 	<div id="jar_jar_binks">
 		<span> jar jar <br/>binks</span>
 	</div>
-	<div id="INICIO">
+	<div id="INICIO" style="left:800px; top:1000px">
 		<a class = "Hypertext" href="/mi_tienda"><span>INICIO</span></a>
 	</div>
-	<div id="c">
+	<div id="INICIO" style="left:100px; top:1000px">
+		<a class = "Hypertext" href="{% static '/about.html' %}"><span>Acerca de</span></a>
+	</div>
+	<div>
 	<a class = "Hypertext" href="carrito"><img id="carrito" src="{% static 'image/carrito.png' %}"></a>
 	</div>
+	<!-- Bloque de contenido específico de cada página -->
   {% block content %}
   {% endblock %}
 <svg class="RECTANGULO_CONTACTO">
   <rect fill="rgba(0,0,0,1)" id="Rect_ngulo_20" rx="0" ry="0" x="0" y="0" width="1920" height="187">
   </rect>
 </svg>
-<div id="Contacto1">
+<div id="Contacto">
   <span>Contacto</span><br><span font-weigh= normal;>Tlf: 68899955<br/>Email : jarjarbinksshop.jarjar.es</span>
 </div>
 </div>

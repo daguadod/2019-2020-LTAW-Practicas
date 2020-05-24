@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+<!-- Página principal de nuestra aplicación -->
 {% block content %}
 <form id="formulario" action="myform" method="post">
+  <!-- Token de seguridad (si no da fallo) -->
   {% csrf_token %}
-  <input type="text" id="busqueda" name="Busqueda" placeholder="Buscar..." autocomplete="off"/> <br/>
-  <input type="submit" id="boton" value="Buscar"/>
+  <input type="text" id="busqueda" 	style= "top: 975px; right: 30px;" name="Busqueda" placeholder="Buscar..." autocomplete="off"/> <br/>
+  <input type="submit" style="right: 330px; top: 975px" id="boton" value="Buscar"/>
   <p id="resultado"></p>
 </form>
+<!-- Creamos un bucle para que se creen los componentes correspondientes a cada producto -->
   {% for product in productos%}
+    <!-- cycle nos permite iterar entre los objetos proporcionados al mismo tiempo que itera el bucle -->
     <svg class="{% cycle 'RECTANGULO1' 'RECTANGULO2' 'RECTANGULO3' %}">
-      <rect fill="rgba(255,255,255,1)" id="{% cycle 'Rect_ngulo_18' 'Rect_ngulo_18_' 'Rect_ngulo_18_ba' %}" rx="64" ry="64" x="0" y="0" width="466" height="477">
+      <rect fill="rgba(255,255,255,1)" rx="64" ry="64" x="0" y="0" width="466" height="477">
       </rect>
     </svg>
+    <!-- href llama a una URL conteniendo el nombre del producto seleccionado (campo name del modelo Producto) -->
+    <!-- en src, solicitamos el método def get_path del modelo producto -->
     <a href="{{ product.name }}_product"><img id="{% cycle 'Imagen_1' 'Imagen_2' 'Imagen_3' %}" src="{% static product.get_path %}"></a>
     <div id="{% cycle 'CAMISETAS' 'ZAPATILLAS' 'COMPLEMENTOS' %}">
       <span>{{ product.name | title}}</span>

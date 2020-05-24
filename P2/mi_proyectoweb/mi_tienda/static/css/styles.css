@@ -47,9 +47,8 @@
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 		position: absolute;
 		overflow: visible;
-		width: 300px;
-		top: 1000px;
-		right: 1300px;
+		top: 1400px;
+		left: 1200px;
 		border: 1px;
 	}
 	#registro1{
@@ -60,44 +59,10 @@
 		font-size: 40px;
 		color: black;
 	}
-	#registro2{
-		position: absolute;
-		overflow: visible;
-		border-radius: 0;
-		font-family: STARWARS;
-		font-size: 40px;
-		color: black;
-	}
-	#registro3{
-		position: absolute;
-		overflow: visible;
-		border-radius: 0;
-		font-family: STARWARS;
-		font-size: 40px;
-		color: black;
-	}
-	#registro4{
-		position: absolute;
-		overflow: visible;
-		border-radius: 0;
-		font-family: STARWARS;
-		font-size: 40px;
-		color: black;
-	}
-	#boton_registro{
-		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
-		position: absolute;
-		overflow: visible;
-		font-size: 30px;
-		background-color: black;
-		color: yellow;
-	}
 	#boton{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 		position: absolute;
 		overflow: visible;
-		right: 330px;
-		top: 975px;
 		height: 50px;
 		width: 150px;
 		font-size: 30px;
@@ -110,8 +75,6 @@
 		overflow: visible;
 		height: 50px;
 		width: 300px;
-		top: 975px;
-		right: 30px;
 		border: 1px;
 		border-color: yellow;
 		border-radius: 0;
@@ -127,63 +90,24 @@
 		overflow: visible;
 		width: 100px;
 	}
-	#busqueda_carrito{
-		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
-		position: absolute;
-		overflow: visible;
-		height: 50px;
-		width: 300px;
-		top: 1200px;
-		right: 800px;
-		border: 1px;
-		border-color: yellow;
-		border-radius: 0;
-		font-family: STARWARS;
-		font-size: 40px;
-		background-color: white;
-		color: black;
-	}
-	#boton_carrito{
-		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
-		position: absolute;
-		overflow: visible;
-		right: 1100px;
-		top: 1200px;
-		height: 50px;
-		width: 150px;
-		font-size: 30px;
-		background-color: black;
-		color: yellow;
-	}
 	#resultado{
 		position: absolute;
 		overflow: visible;
-		right: 800px;
+		right: 700px;
 		top: 1300px;
-		font-size: 30px;
-		font-family: STARWARS;
-	}
-	#precio{
-		position: absolute;
-		overflow: visible;
-		right: 1075px;
-		top: 1500px;
 		font-size: 30px;
 		font-family: STARWARS;
 	}
 	#INICIO {
 		position: absolute;
-		left: 800px;
-		top: 1000px;
 		overflow: hidden;
-		width: 168px;
-		height: 47px;
 		text-align: center;
 		font-family: STARWARS;
-		font-style: normal;
 		font-weight: bold;
 		font-size: 40px;
-		color: rgba(255,235,35,1);
+	}
+	.Hypertext{
+		color: yellow;
 	}
 	.RECTANGULO1 {
 		filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.192));
@@ -242,11 +166,8 @@
 		top: 1689.5px;
 		overflow: visible;
 		width: 306px;
-		white-space: nowrap;
 		text-align: center;
 		font-family: 'STARWARS';
-		font-style: normal;
-		font-weight: normal;
 		font-size: 50px;
 		color: rgba(0,0,0,1);
 	}
@@ -256,11 +177,8 @@
 		top: 1689.5px;
 		overflow: visible;
 		width: 349px;
-		white-space: nowrap;
 		text-align: center;
 		font-family: 'STARWARS';
-		font-style: normal;
-		font-weight: normal;
 		font-size: 50px;
 		color: rgba(0,0,0,1);
 	}
@@ -270,11 +188,8 @@
 		top: 1689.5px;
 		overflow: visible;
 		width: 452px;
-		white-space: nowrap;
 		text-align: center;
 		font-family: 'STARWARS';
-		font-style: normal;
-		font-weight: normal;
 		font-size: 50px;
 		color: rgba(0,0,0,1);
 	}
@@ -286,7 +201,7 @@
 		left: 0px;
 		top: 1894px;
 	}
-	#Contacto1 {
+	#Contacto {
 		position: absolute;
 		left: 564px;
 		top: 1932px;
@@ -298,56 +213,6 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: 30px;
-		color: rgba(255,235,35,1);
-	}
-	/*
-	--
-	SEPARIACION ENTRE PAGINAS SECUNDARIAS Y PAGINA PRINCIPAL
-	--
-	*/
-	#Web_2 {
-		position: absolute;
-		transform: translateX(-50%);
-		left: 50%;
-		width: 1920px;
-		height: 1256px;
-		background-color: rgba(255,255,255,1);
-		overflow: hidden;
-	}
-	.RECTANGULO1_B {
-		position: absolute;
-		overflow: visible;
-		width: 1920px;
-		height: 138px;
-		left: -1px;
-		top: -1px;
-	}
-	#j {
-		position: absolute;
-		left: 59.5px;
-		top: -7px;
-		overflow: visible;
-		width: 35px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: JARJAR;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 80px;
-		color: rgba(255,235,35,1);
-	}
-	#B {
-		position: absolute;
-		left: 94px;
-		top: -7px;
-		overflow: visible;
-		width: 74px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: JARJAR;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 80px;
 		color: rgba(255,235,35,1);
 	}
 	#producto {
@@ -393,74 +258,15 @@
 		font-size: 60px;
 		color: rgba(0,0,0,1);
 	}
-	#Grupo_8 {
-		position: absolute;
-		width: 782px;
-		height: 142px;
-		left: 1047.5px;
-		top: 639px;
-		overflow: visible;
-	}
-	#Grupo_4 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 0px;
-		top: 0px;
-		overflow: visible;
-	}
-	.RECTANGULO2_B {
+	input[type=radio] {
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
-		position: absolute;
-		overflow: visible;
-		width: 166px;
-		height: 172px;
-		left: 0.5px;
-		top: 870px;
+		background-color: yellow;
+    border: 1px;
+    width: 50px;
+    height: 2em;
 	}
-	#S {
-		position: absolute;
-		right: 0px;
-		top: 900px;
-		overflow: hidden;
-		width: 138px;
-		height: 80px;
-		text-align: center;
+	#talla {
 		font-family: STARWARS;
-		font-style: normal;
-		font-weight: normal;
 		font-size: 70px;
 		color: rgba(0,0,0,1);
-	}
-	#Grupo_5 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 215px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Grupo_6 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 430px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Grupo_7 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 645px;
-		top: 0px;
-		overflow: visible;
-	}
-	.RECTANGULO3_B {
-		position: absolute;
-		overflow: visible;
-		width: 1920px;
-		height: 179px;
-		left: 0px;
-		top: 1077px;
 	}

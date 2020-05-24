@@ -3,11 +3,11 @@
 {% block content %}
   <form action="consultar" method="post">
     {% csrf_token %}
-    <input type="text" id='busqueda_carrito' name="nombre" placeholder="Nombre" autocomplete="off" required/> <br/>
-    <input type="submit" id='boton_carrito' value="Buscar"/>
+    <input type="text" id='busqueda' style= "top: 1200px; right: 800px;" name="nombre" placeholder="Nombre" autocomplete="off" required/> <br/>
+    <input type="submit" id='boton' style= "right: 1100px;top: 1200px;" value="Buscar"/>
   </form>
 {% if carrito %}
-  <p id='resultado'>Productos:<br><br> {{carrito}}<br></p>
-  <p id='precio'> Total: {{precio}} €</p>
+  <p id="resultado">Productos:<br><br> {{carrito}}<br></p>
+  <p id="resultado" style="top: 1500px;"> Total: {{precio}} €</p>
 {% endif %}
 {% endblock %}

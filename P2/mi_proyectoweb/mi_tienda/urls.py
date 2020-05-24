@@ -4,7 +4,8 @@ from django.urls import path
 from . import views
 
 # -- Aquí se definen las URLs de nuestra tienda
-# -- Metemos de momento sólo la principal (índice)
+# -- Cada uno de los path, responde a una petición del cliente (url solicitada)
+# -- Redirigiendo a las distintas vistas de nuestra aplicación.
 
 urlpatterns = [
     # -- Vista pricipal (índice)

@@ -9,49 +9,19 @@
   <div id="prize">
     <span>{{producto.name | title}} {{producto.prize}} € </span>
   </div>
-  <div id="Grupo_8">
-    <div id="Grupo_4">
-      <svg class="RECTANGULO2_B">
-        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
-        </rect>
-      </svg>
-      <div id="S">
-        <span>S</span>
-      </div>
-    </div>
-    <div id="Grupo_5">
-      <svg class="RECTANGULO2_B">
-        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
-        </rect>
-      </svg>
-      <div id="S">
-        <span>M</span>
-      </div>
-    </div>
-    <div id="Grupo_6">
-      <svg class="RECTANGULO2_B">
-        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
-        </rect>
-      </svg>
-      <div id="S">
-        <span>L</span>
-      </div>
-    </div>
-    <div id="Grupo_7">
-      <svg class="RECTANGULO2_B">
-        <rect fill="rgba(255,255,255,1)" rx="42" ry="42" x="0" y="0" width="136" height="142">
-        </rect>
-      </svg>
-      <div id="S">
-        <span>XL</span>
-      </div>
-      <form id="registro" action="compra" method="post">
-        {% csrf_token %}
+  <form id = "registro" action="compra" method="post">
+    {% csrf_token %}
+        <input style="top:200px; right:500px" type="radio" name="talla" value="S">
+        <label id="talla" for="s">S</label>
+        <input style="top:200px; right:200px" type="radio" name="talla" value="M" checked>
+        <label id="talla" for="m">M</label>
+        <input style="top:200px; right:100px" type="radio" name="talla" value="L">
+        <label id="talla" for="l">L</label><br><br><br>
         <input id="registro1"type="text" name="nombre" value="" placeholder="Nombre"required/><br><br><br><br>
-        <input id="registro2"type="password" name="contrasena" value="" placeholder="Contraseña"required/><br><br><br><br>
-        <input id="registro3"type="email" name="correo" value="" placeholder="Correo"required/><br><br><br><br>
-  			<input id="registro4"type="text" id="comprar" name="producto" value="{{producto.name}}" readonly/><br><br><br><br>
-  	    <input id="boton_registro"type="submit" id="boton1" value="Añadir a la cesta"/>
+        <input id="registro1"type="password" name="contrasena" value="" placeholder="Contraseña"required/><br><br><br><br>
+        <input id="registro1"type="email" name="correo" value="" placeholder="Correo"required/><br><br><br><br>
+  			<input id="registro1"type="text" id="comprar" name="producto" value="{{producto.name}}" readonly/><br><br><br><br>
+  	    <input id="boton" style="width: 300px" type="submit" id="boton1" value="Añadir a la cesta"/>
   		</form>
     </div>
 {% endblock %}
