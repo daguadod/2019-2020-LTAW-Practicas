@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+  <form action="borrar" method="post">
+    <!-- Token de seguridad (si no da fallo) -->
+    {% csrf_token %}
+    <input type="text" id = "busqueda" style= "top: 1200px; right: 400px;" name="nombre" placeholder="Nombre" autocomplete="off" required/> <br/>
+    <input type="password" id = "busqueda" style= "top: 1300px; right: 400px;" name="contrasena" placeholder="Contraseña" autocomplete="off" required/> <br/>
+    <input type="submit" style="right: 400px; top: 1400px" id="boton" value="Eliminar"/>
+    <p id="resultado"></p>
+  </form>
   <form action="consultar" method="post">
     {% csrf_token %}
     <input type="text" id='busqueda' style= "top: 1200px; right: 800px;" name="nombre" placeholder="Nombre" autocomplete="off" required/> <br/>

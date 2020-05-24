@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 # -- Debemos importar los modelos de nuestra tienda
 from mi_tienda.models import Producto, Registro
 # -- Vista principal de mi tienda
@@ -53,3 +54,18 @@ def consultar(request):
         carrito = ''
         precio = ''
     return render(request, 'carrito.html', {'carrito' : carrito, 'precio' : precio})
+
+def eliminar(request):
+    nombre = request.POST['nombre']
+    contrasena = request.POST['contrasena']
+    try:
+        name = Registro.objects.get(name=nombre).carrito
+        password = Registro.objects.get(name=nombre).contrasena
+        if contrasena == password:
+            r = Registro.objects.get(name=nombre)
+            r.delete();
+            return render(request, 'index.html', {'productos' : Producto.objects.all()})
+        else:
+            return HttpResponse("<h1>Contraseña incorrecta</h1>")
+    except:
+        return HttpResponse("<h1>No se ha podido encontrar el usuario</h1>")

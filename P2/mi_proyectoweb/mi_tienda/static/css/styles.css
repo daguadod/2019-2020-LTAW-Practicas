@@ -106,9 +106,6 @@
 		font-weight: bold;
 		font-size: 40px;
 	}
-	.Hypertext{
-		color: yellow;
-	}
 	.RECTANGULO1 {
 		filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.192));
 		position: absolute;
@@ -201,7 +198,7 @@
 		left: 0px;
 		top: 1894px;
 	}
-	#Contacto {
+	#contacto {
 		position: absolute;
 		left: 564px;
 		top: 1932px;
@@ -210,8 +207,6 @@
 		height: 111px;
 		text-align: center;
 		font-family: JARJAR;
-		font-style: normal;
-		font-weight: normal;
 		font-size: 30px;
 		color: rgba(255,235,35,1);
 	}
