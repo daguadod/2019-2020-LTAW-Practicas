@@ -16,7 +16,7 @@ busqueda.onkeyup = ()=>{
     //-- Configurar la petición
     m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
 
-    //-- Cuando la haya alguna noticia sobre la peticion
+    //-- Cuando haya alguna noticia sobre la peticion
     //-- ejecuta este código
     m.onreadystatechange=function(){
        //-- Petición enviada y recibida. Todo OK!

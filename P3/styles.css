@@ -23,18 +23,6 @@
 		font-family: STARWARS;
 		src: url(Lato-BlackItalic.ttf) format("truetype");
 	}
-	#boton{
-		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
-		position: absolute;
-		overflow: visible;
-		top: 750px;
-		left: 800px;
-		height: 100px;
-		width: 300px;
-		font-size: 40px;
-		background-color: black;
-		color: yellow;
-	}
 	#boton1{
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 1));
 		position: absolute;
@@ -242,25 +230,6 @@
 		overflow: visible;
 		width: 526px;
 		height: 537px;
-		left: 145px;
-		top: 1141px;
-	}
-	.RECTANGULO2 {
-		filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.192));
-		position: absolute;
-		overflow: visible;
-		width: 526px;
-		height: 537px;
-		left: 724px;
-		top: 1141px;
-	}
-	.RECTANGULO3 {
-		filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.192));
-		position: absolute;
-		overflow: visible;
-		width: 526px;
-		height: 537px;
-		left: 1303px;
 		top: 1141px;
 	}
 	#Imagen_1 {
@@ -287,40 +256,11 @@
 		top: 1208px;
 		overflow: visible;
 	}
-	#CAMISETAS {
+	#articulos {
 		position: absolute;
-		left: 225.5px;
 		top: 1689.5px;
 		overflow: visible;
 		width: 306px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: 'STARWARS';
-		font-style: normal;
-		font-weight: normal;
-		font-size: 50px;
-		color: rgba(0,0,0,1);
-	}
-	#ZAPATILLAS {
-		position: absolute;
-		left: 783.5px;
-		top: 1689.5px;
-		overflow: visible;
-		width: 349px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: 'STARWARS';
-		font-style: normal;
-		font-weight: normal;
-		font-size: 50px;
-		color: rgba(0,0,0,1);
-	}
-	#COMPLEMENTOS {
-		position: absolute;
-		left: 1310.5px;
-		top: 1689.5px;
-		overflow: visible;
-		width: 452px;
 		white-space: nowrap;
 		text-align: center;
 		font-family: 'STARWARS';
@@ -365,21 +305,13 @@
 		background-color: white;
 		overflow: hidden;
 	}
-	.RECTANGULO1_B {
+	.RECTANGULO_superior {
 		position: absolute;
 		overflow: visible;
 		width: 1920px;
 		height: 138px;
 		left: -1px;
 		top: -1px;
-	}
-	.RECTANGULO1_BC {
-		position: absolute;
-		overflow: visible;
-		width: 1920px;
-		height: 138px;
-		left: -1px;
-		top: 525px;
 	}
 	#INICIO {
 		position: absolute;
@@ -395,7 +327,7 @@
 		font-size: 40px;
 		color: rgba(255,235,35,1);
 	}
-	#j {
+	#INICIO_JB {
 		position: absolute;
 		left: 59.5px;
 		top: 7px;
@@ -409,7 +341,7 @@
 		font-size: 80px;
 		color: rgba(255,235,35,1);
 	}
-	#b {
+	#carrito {
 		position: absolute;
 		right: 90px;
 		top: 7px;
@@ -423,21 +355,7 @@
 		font-size: 80px;
 		color: rgba(255,235,35,1);
 	}
-	#c {
-		position: absolute;
-		right: 90px;
-		top: 550px;
-		overflow: visible;
-		width: 35px;
-		white-space: nowrap;
-		text-align: center;
-		font-family: JARJAR;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 80px;
-		color: rgba(255,235,35,1);
-	}
-	#d {
+	#registro {
 		position: absolute;
 		right: 160px;
 		top: 580px;
@@ -497,7 +415,7 @@
 		font-size: 60px;
 		color: rgba(0,0,0,1);
 	}
-	#Grupo_8 {
+	#Grupo {
 		position: absolute;
 		width: 782px;
 		height: 142px;
@@ -505,15 +423,14 @@
 		top: 639px;
 		overflow: visible;
 	}
-	#Grupo_4 {
+	#Grupo1 {
 		position: absolute;
 		width: 137px;
 		height: 142px;
-		left: 0px;
 		top: 0px;
 		overflow: visible;
 	}
-	.RECTANGULO2_B {
+	.RECTANGULO_talla {
 		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
 		position: absolute;
 		overflow: visible;
@@ -522,7 +439,7 @@
 		left: 0.5px;
 		top: 0px;
 	}
-	#S {
+	#talla {
 		position: absolute;
 		left: 0px;
 		top: 25.5px;
@@ -536,38 +453,7 @@
 		font-size: 70px;
 		color: rgba(0,0,0,1);
 	}
-	#Grupo_5 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 215px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Grupo_6 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 430px;
-		top: 0px;
-		overflow: visible;
-	}
-	#Grupo_7 {
-		position: absolute;
-		width: 137px;
-		height: 142px;
-		left: 645px;
-		top: 0px;
-		overflow: visible;
-	}
-	.RECTANGULO4 {
-		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.314));
-		position: absolute;
-		overflow: visible;
-		left: 1050px;
-		top: 850px;
-	}
-	.RECTANGULO3_B {
+	.RECTANGULO_CONTACTO1 {
 		position: absolute;
 		overflow: visible;
 		width: 1920px;
