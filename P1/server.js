@@ -30,6 +30,7 @@ function petition(req, res) {
     filename = q.pathname.substr(1);
   };
 
+  //Mime o extensión de el recurso solicitado
   let extension = filename.split(".")[1];
   let mime = "";
   switch (extension) {
