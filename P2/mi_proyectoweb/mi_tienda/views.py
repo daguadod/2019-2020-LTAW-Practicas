@@ -57,7 +57,7 @@ def consultar(request):
 
 #Vista para eliminar los datos de un usuario registrado
 def eliminar(request):
-    nombre = request.POST['nombre']
+    nombre = request.POST['name'].lower()
     contrasena = request.POST['contrasena']
     #Comprobamos si el usuario que se desea eliminar está registrado
     try:
