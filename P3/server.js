@@ -231,7 +231,7 @@ function petition(req, res) {
         x = productos[i].toLowerCase().indexOf(params.param1.toLowerCase());
         //-- Añadir cada producto al párrafo de visualización (Al no compartir empiece ningún producto, será un único producto)
         if (x == 0){
-          resultado += productos[i];
+          resultado += productos[i] + '/';
         }
       }
       content = JSON.stringify(resultado) + '\n';

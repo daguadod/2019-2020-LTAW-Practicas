@@ -4,7 +4,7 @@ const resultado = document.getElementById('resultado');
 //-- Obtener el párrafo del DOM donde mostrar el resultado
 const busqueda = document.getElementById('busqueda');
 
-//-- Cuando el usuario aprieta el botón de ver los productos
+//-- Cuando el usuario escribe en la barra de búsqueda
 busqueda.onkeyup = ()=>{
   //-- Borrar el resultado anterior que hubiese en el párrafo
   //-- de resultado
@@ -12,7 +12,7 @@ busqueda.onkeyup = ()=>{
   if (busqueda.value.length >= 3) {
     //-- Crear objeto para hacer peticiones AJAX
     const m = new XMLHttpRequest();
-
+    result = "";
     //-- Configurar la petición
     m.open("GET","http://localhost:8080/myquery?param1=" + busqueda.value, true);
 
@@ -27,14 +27,21 @@ busqueda.onkeyup = ()=>{
 
          //--Recorrer los productos del objeto JSON
          for (let i=0; i < productos.length; i++) {
-
-           //-- Añadir cada producto al párrafo de visualización
-           resultado.innerHTML += productos[i];
-
+           result += productos[i];
          }
+         //-- Añadir cada producto al párrafo de visualización
+         //Esto es añadido para poder extrapolarlo al caso en el que haya más produtos con el mismo empiece
+         //En el caso de haber más productos, añadir más <p> resultado para ir añadiendo los productos
+         resultado.innerHTML = result.split("/")[0];
        }
      }
      //-- Enviar la petición!
      m.send();
   }
 }
+//--Evento para autocompletar, pasando el ratón por encima del resultado de la búsqueda
+//Si quisieramos añadir más productos con inicios similares, añadiriamos más event listener
+//De esta forma con pasar el ratón, tendríamos autocompletado del objeto deseado.
+resultado.addEventListener('mouseover', function(event){
+    busqueda.value = result;
+  })
