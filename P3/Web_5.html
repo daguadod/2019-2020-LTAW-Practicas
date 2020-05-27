@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0">
 		<title>JARJAR/CARRITO</title>
 		<link rel="Stylesheet" type="text/css" href="styles.css"/>
+		<script  src="client2.js" defer></script>
 		<link rel="shortcut icon" href="LOGO.png">
 	</head>
 	<body>
@@ -19,13 +20,14 @@
 			<a class = "Hypertext" href="Web_1.html"><img src="JB.png"></a>
 			</div>
 		  <p id="nombretxt">CONSULTE SU CARRITO:</p>
-			<form id="formulario" action="/carrito" method="post">
+			<form id="formulario">
 				<input type="text" id="name" name="name" autocomplete="off" placeholder="Nombre" required/>
 				<input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" required/>
 				<input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" required/>
 				<input type="text" id="pago" name="pago" autocomplete="off" placeholder="Metodo de pago"required/>
-				<input type="submit" id="boton3" value="comprar" required>
+				<input type="button" id="boton3" value="comprar">
 			</form>
+			<div id="resultado" style="top: 400px; left: 50px;"></div>
 			<svg class="RECTANGULO_CONTACTO1">
 				<rect fill="rgba(0,0,0,1)" rx="0" ry="0" x="0" y="0" width="1920" height="179">
 				</rect>

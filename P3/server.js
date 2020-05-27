@@ -20,9 +20,9 @@ let parametro1 = "";
 let parametro2 = "";
 let parametro3 = "";
 let parametro4 = "";
+let params = "";
 //-- Variable que servirá para devolver un archivo
 let filename = "";
-let new_user = Boolean;
 //-- Funcion para atender a una Peticion
 //-- req: Mensaje de solicitud
 //-- res: Mensaje de respuesta
@@ -37,13 +37,9 @@ function petition(req, res) {
   parametro2 = "";
   parametro3 = "";
   parametro4 = "";
-  new_user = true;
+  let new_user = true;
   //COOKIES enviadas por el cliente ya que se guardan en el browser
   const cookie = req.headers.cookie;
-  //-- Peticion recibida
-  console.log("Peticion recibida");
-  console.log("Recurso solucitado (URL): " + req.url)
-
   let q = url.parse(req.url, true);
 
   //Parte de query
@@ -157,7 +153,6 @@ function petition(req, res) {
           parametro2 = data.split("=")[1];
           //Comprobamos si existen cookies
           if(cookie){
-            content = "";
             //Iteramos entre las distintas cookies (Se encuentran separadas por defecto por ; )
             for (var i = 0; i < cookie.split("; ").length; i++) {
               //Comprobamos que el nombre de la cookie actual es igual que el nombre del cliente que quiere comprar
@@ -194,100 +189,39 @@ function petition(req, res) {
       break;
     //Solicitud de consultar el carrito(Mismo formato que el anterior, es un POST con datos)
     case "/carrito":
-      if (req.method === 'POST') {
-        req.on('data', chunk => {
-          //Guardamos los datos del cliente "nombre, apellido, correo, método de pago"
-          data = chunk.toString();
-          parametro1 = data.split("&")[0].split("=")[1];
-          parametro2 = data.split("&")[1].split("=")[1];
-          parametro3 = data.split("&")[2].split("=")[1];
-          parametro4 = data.split("&")[3].split("=")[1];
-          //Generamos un html al vuelo con los datos personalizados del cliente
-          content = `
-          <!DOCTYPE html>
-          <html>
-          	<head>
-          		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-          		<title>CARRITO</title>
-          		<link rel="Stylesheet" type="text/css" href="styles.css"/>
-          		<link rel="shortcut icon" href="LOGO.png">
-          	</head>
-          	<body>
-          		<div id="Web_2">
-          			<svg class="RECTANGULO_superior">
-          				<rect fill="rgba(0,0,0,1)" rx="0" ry="0" x="0" y="0" width="1920" height="138">
-          				</rect>
-          			</svg>
-          			<div id="INICIO">
-          				<a class = "Hypertext" href="Web_1.html"><span>INICIO</span></a>
-          			</div>
-          			<div id="INICIO_JB">
-          			<a class = "Hypertext" href="Web_1.html"><img id="J" src="JB.png"></a>
-          			</div>
-          		  <p id="nombretxt">AQUI TIENE SUS DATOS:</p>
-                <p id="name">Nombre: `
-                //Añadimos los parametros al documento html al vuelo en content
-          content += parametro1 += `</p><br><p id="apellido">Apellido:`
-          content += parametro2 += `</p><br><p id="correo">Correo: `
-          content += parametro3 += `</p><br><p id="pago">Pago: `
-          content += parametro4 += `</p><br><p id="productos">Tus productos son: `
-          parametro1 = data.split("&")[0].split("=")[1];
-          parametro2 = data.split("&")[1].split("=")[1];
-          parametro3 = data.split("&")[2].split("=")[1];
-          parametro4 = data.split("&")[3].split("=")[1];
-          //-- Iteramos entre las cookies almacenadas
-          if(cookie){
-            for (var i = 0; i < cookie.split("; ").length; i++) {
-              if (cookie.split("; ")[i].split("=")[0] == parametro1) {
-                //Guardamos el value de la cookie correspondiente al cliente en concreto
-                products = cookie.split("; ")[i].split("=")[1];
-                content += products += `</p><br>`
-                content +=
-                     `<svg class="RECTANGULO_CONTACTO1">
-                				<rect fill="rgba(0,0,0,1)" rx="0" ry="0" x="0" y="0" width="1920" height="179">
-                				</rect>
-                			</svg>
-                			<div id="Contacto2">
-                				<span>Contacto</span><br><span>Tlf: 68899955<br/>Email : jarjarbinks_shop.jarjar.es</span>
-                			</div>
-                		</div>
-                	</body>
-                </html> `
-                new_user = false;
-                break;
-              }
-            }
-            //Enviamos a registrarse si no está registrado
-            if (new_user) {
-              filename = "sesion.html";
-            }
-          }else{
-            filename = "sesion.html";
+      params = q.query;
+      parametro1 = params.nombre;
+      if(cookie){
+        //Iteramos entre las distintas cookies (Se encuentran separadas por defecto por ; )
+        for (var i = 0; i < cookie.split("; ").length; i++) {
+          //Comprobamos que el nombre de la cookie actual es igual que el nombre del cliente que quiere comprar
+          if (cookie.split("; ")[i].split("=")[0] == parametro1) {
+            new_user = false;
+            //Actualizamos el Value de la cookie (Nombre=Value) añadiendo el producto a esta
+            resultado = cookie.split("; ")[i].split("=")[1];
+            content = JSON.stringify(resultado);
           }
-        })
-        req.on('end', ()=> {
-        //Devolvemos el archivo html como respuesta ya sea el creado al vuelo o el de registro
-          fs.readFile(filename, (err, data) => {
-            res.writeHead(200, {'Content-Type': "text/html"});
-            if (new_user) {
-              //html de registro
-              res.write(data);
-              return res.end();
-            }else{
-              //html creado al vuelo
-              res.writeHead(200, {'Content-Type': "text/html"});
-              res.write(content);
-              return res.end();
-            }
-          })
-        })
-        return
+        }
+        //Si no se encuentra registrado le enviamos a registrarse
+        if (new_user) {
+          content = "";
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.write(content);
+        res.end();
+        //Si no se encuentra registrado le enviamos a registrarse
+      }else{
+        resultado = "";
+        content = JSON.stringify(resultado) + '\n';
+        res.setHeader('Content-Type', 'application/json');
+        res.write(content);
+        res.end();
       }
+      return
       break;
       //Usamos myquery para ir enviando datos de sugerencia mientras se busca un producto
     case "/myquery":
-      const params = q.query;
-      console.log(params.param1);
+      params = q.query;
       //-- El array de productos lo pasamos a una cadena de texto,
       //-- en formato JSON:
       //--Recorrer los productos del objeto JSON
@@ -314,7 +248,6 @@ function petition(req, res) {
   }
   //Extraemos la terminación del recurso solicitado para poder generar el mime correspondiente
   let extension = filename.split(".")[1];
-  console.log(extension);
   let mime = "";
   switch (extension) {
     case "js":
@@ -347,7 +280,7 @@ function petition(req, res) {
   //-- El código 200 se usa para indicar que todo está ok
   //-- En el campo Content-Type tenemos que introducir el tipo MIME
   //-- de lo que devolvemos
-  if (q.pathname != "/myquery" | q.pathname != "/busqueda") {
+  if (q.pathname != "/myquery" || q.pathname != "/carrito") {
     //Leer fihchero html
     fs.readFile(filename, (err, data) => {
 
