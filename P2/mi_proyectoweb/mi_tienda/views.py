@@ -55,17 +55,21 @@ def consultar(request):
         precio = ''
     return render(request, 'carrito.html', {'carrito' : carrito, 'precio' : precio})
 
+#Vista para eliminar los datos de un usuario registrado
 def eliminar(request):
     nombre = request.POST['nombre']
     contrasena = request.POST['contrasena']
+    #Comprobamos si el usuario que se desea eliminar está registrado
     try:
-        name = Registro.objects.get(name=nombre).carrito
+        name = Registro.objects.get(name=nombre).name
         password = Registro.objects.get(name=nombre).contrasena
+        #Comprobamos si las contraseñas coinciden
         if contrasena == password:
             r = Registro.objects.get(name=nombre)
             r.delete();
             return render(request, 'index.html', {'productos' : Producto.objects.all()})
         else:
+            #Devolvemos una respuesta simple
             return HttpResponse("<h1>Contraseña incorrecta</h1>")
     except:
         return HttpResponse("<h1>No se ha podido encontrar el usuario</h1>")
