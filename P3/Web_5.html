@@ -24,7 +24,12 @@
 				<input type="text" id="name" name="name" autocomplete="off" placeholder="Nombre" required/>
 				<input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" required/>
 				<input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" required/>
-				<input type="text" id="pago" name="pago" autocomplete="off" placeholder="Metodo de pago"required/>
+				<input id="metod" type="radio" style="top:800px; right:290px" name="pago" value="PAYPAL">
+        <label id="pago" style="top:720px; right:220px" for="PAYPAL">PAYPAL</label>
+        <input id="metod" type="radio" style="top:800px; right:675px" name="pago" value="TRANSFERENCIA" checked>
+        <label id="pago" style="top:720px; right:475px" for="TRANSFERENCIA">TRANSFERENCIA</label>
+        <input id="metod" type="radio" style="top:800px; right:1100px" name="pago" value="TARJETA">
+        <label id="pago" style="top:720px; right:1000px"for="TARJETA">TARJETA</label><br><br><br>
 				<input type="button" id="boton3" value="comprar">
 			</form>
 			<div id="resultado" style="top: 400px; left: 50px;"></div>

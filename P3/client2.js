@@ -8,8 +8,8 @@ const apellido = document.getElementById('apellido');
 const correo = document.getElementById('correo');
 
 //-- Obtener el párrafo del DOM donde mostrar el resultado
-const pago = document.getElementById('pago');
-
+const payment = document.getElementById('formulario');
+const longitud = document.getElementById('formulario').pago.length;
 //-- Obtener el párrafo del DOM donde mostrar el resultado
 const boton3 = document.getElementById('boton3');
 
@@ -18,12 +18,17 @@ const resultado = document.getElementById('resultado');
 
 //-- Cuando el usuario aprieta el botón de ver los productos
 boton3.onclick = () =>{
-
+  var metodo = "";
+  for (var i = 0; i < longitud; i++) {
+    if (payment.pago[i].checked) {
+      metodo = payment.pago[i].value;
+    }
+  }
   //-- Crear objeto para hacer peticiones AJAX
   const m = new XMLHttpRequest();
 
   //-- Configurar la petición
-  m.open("GET","http://localhost:8080/carrito?nombre=" + nombre.value + "&apellido=" + apellido.value + "&correo=" + correo.value + "&pago=" + pago.value, true);
+  m.open("GET","http://localhost:8080/carrito?nombre=" + nombre.value + "&apellido=" + apellido.value + "&correo=" + correo.value + "&pago=" + metodo, true);
   m.send();
   //-- Cuando la haya alguna noticia sobre la peticion
   //-- ejecuta este código
@@ -34,7 +39,7 @@ boton3.onclick = () =>{
        if (m.responseText != "") {
          //-- La respuesta es un objeto JSON
          let productos = JSON.parse(m.responseText);
-         resultado.innerHTML = "Su ticket es: <br>Nombre: " + nombre.value + "<br>Apellido: " + apellido.value + "<br>Correo: " + correo.value + "<br>Metodo de pago: " + pago.value + "<br>Compra:<br>"
+         resultado.innerHTML = "Su ticket es: <br>Nombre: " + nombre.value + "<br>Apellido: " + apellido.value + "<br>Correo: " + correo.value + "<br>Metodo de pago: " + metodo + "<br>Compra:<br>"
          //--Recorrer los productos del objeto JSON
          for (let i=0; i < productos.length; i++) {
 
