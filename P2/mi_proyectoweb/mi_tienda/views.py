@@ -31,12 +31,16 @@ def compra(request):
         r = Registro.objects.get(name=nombre)
     except:
         r = Registro(name=nombre, contrasena=contrasena, correo=correo)
-    r.precio += producto.prize
-    r.carrito += producto.name + '(' + talla + '),'
-    print(f"PEDIDO RECIBIDO DE {nombre}")
-    r.save()
-    #Volvemos a la página principal tras la compra
-    return render(request, 'index.html', {'productos' : Producto.objects.all()})
+    if contrasena == r.contrasena:
+        r.precio += producto.prize
+        r.carrito += producto.name + '(' + talla + '),'
+        print(f"pedido recibido de {nombre}")
+        r.save()
+        #Volvemos a la página principal tras la compra
+        return render(request, 'index.html', {'productos' : Producto.objects.all()})
+    else:
+        #Devolvemos una respuesta simple
+        return HttpResponse("<h1>Contraseña incorrecta</h1>")
 
 #Vista para consultar el carrito. La parte del resultado estará vacía
 def carrito(request):
@@ -51,8 +55,8 @@ def consultar(request):
         carrito = Registro.objects.get(name=nombre).carrito
         precio = Registro.objects.get(name=nombre).precio
     except:
-        carrito = ''
-        precio = ''
+        carrito = 'No ha realizado ninguna compra'
+        precio = '0'
     return render(request, 'carrito.html', {'carrito' : carrito, 'precio' : precio})
 
 #Vista para eliminar los datos de un usuario registrado
