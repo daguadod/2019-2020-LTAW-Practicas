@@ -47,7 +47,7 @@ io.on('connection', function(socket){
   //--Mensaje de bienvenida
   console.log("Cliente número " + clients);
   socket.emit("hello", "Bienvenido al Chat eres el usuario número: " + clients.toString());
-
+  io.emit('msg', "Se ha conectado el usuario número: " + clients,toString());
   //Comandos para el Servidor
   socket.on('cmd', (msg) =>{
     switch (msg) {
@@ -80,5 +80,6 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado. Socket id: ' + socket.id);
     clients -= 1;
+    io.emit('msg', "Se ha desconectado un usuario");
   });
 });
