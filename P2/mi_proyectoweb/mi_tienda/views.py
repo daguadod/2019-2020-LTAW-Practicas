@@ -34,6 +34,7 @@ def compra(request):
     if contrasena == r.contrasena:
         r.precio += producto.prize
         r.carrito += producto.name + '(' + talla + '),'
+        producto.stock = producto.stock - 1;
         print(f"pedido recibido de {nombre}")
         r.save()
         #Volvemos a la página principal tras la compra
