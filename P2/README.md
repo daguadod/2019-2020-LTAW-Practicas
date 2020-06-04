@@ -33,7 +33,7 @@ Funcionalidades de la página web:
 
     - En dichas páginas, nos encontramos tanto con el hipertexto de "INICIO" como el hipertexto de "A cerca de" y la imagen del carrito de la compra cuyas funcionalidades se explican en el apartado anterior.
 
-    - Por otra parte, nos encontramos con la imagen del producto así como el precio y la descripción de este. Si el producto en el que nos encontramos es el deseado, debemos rellenar el formulario que se encuentra en la misma página.
+    - Por otra parte, nos encontramos con la imagen del producto así como el precio y la descripción de este. Si el producto en el que nos encontramos es el deseado, debemos rellenar el formulario que se encuentra en la misma página. En el caso de que el producto se encuentre agotado, no aparecerá dicho formulario indicando que el producto se encuentra agotado.
       - Todos los campos se deben rellenar con el contenido correspondiente, teniendo que rellenarse el campo de correo con un correo válido.
       - El campo de producto viene rellenado previamente con el contenido del producto actual.
       - Por último debemos elegir la talla deseada con los radio buttons correspondientes viniendo por defecto la talla M.

@@ -9,6 +9,7 @@
   <div id="prize">
     <span>{{producto.name | title}} {{producto.prize}} € </span>
   </div>
+  {% if poducto.stock > 0 %}
   <form id = "registro" action="compra" method="post">
     {% csrf_token %}
         <input style="top:200px; right:500px" type="radio" name="talla" value="S">
@@ -20,8 +21,10 @@
         <input id="registro1"type="text" name="nombre" value="" placeholder="Nombre"required/><br><br><br><br>
         <input id="registro1"type="password" name="contrasena" value="" placeholder="Contraseña"required/><br><br><br><br>
         <input id="registro1"type="email" name="correo" value="" placeholder="Correo"required/><br><br><br><br>
-  			<input id="registro1"type="text" id="comprar" name="producto" value="{{producto.name}}" readonly/><br><br><br><br>
-  	    <input id="boton" style="width: 300px" type="submit" id="boton1" value="Añadir a la cesta"/>
-  		</form>
-    </div>
+        <input id="registro1"type="text" id="comprar" name="producto" value="{{producto.name}}" readonly/><br><br><br><br>
+        <input id="boton" style="width: 300px" type="submit" id="boton1" value="Añadir a la cesta"/>
+    </form>
+  {% else %}
+    <p id = "registro" style="font-size: 40px"> EL PRODUCTO ESTA AGOTADO</p>
+  {% endif %}
 {% endblock %}
