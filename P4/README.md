@@ -4,6 +4,10 @@ El funcionamiento de la práctica 4 es un chat en el que se puedan comunicar ent
 
 EL chat se basa en un servidor el cual realiza la función de conectar los distintos clientes entre ellos al mismo tiempo que devuelve el recurso de la página web principal del chat así como el archivo del cliente.
 
+El servidor se ejecuta a través de la terminal con el comando node chat-server.js y los clientes se conectan con la url http://localhost:8080
+
+En la terminal encontramos tanto los recursos solicitados por los clientes como los mensajes que estos envían.
+
 Dentro de las funcionalidades del chat nos encontramos:
 
  - El servidor envía al cliente recién conectado, el número de usuario que eres lo que te permite conocer cuantos usuarios se encuentran en activo ahora mismo.
