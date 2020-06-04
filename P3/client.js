@@ -43,5 +43,5 @@ busqueda.onkeyup = ()=>{
 //Si quisieramos añadir más productos con inicios similares, añadiriamos más event listener
 //De esta forma con pasar el ratón, tendríamos autocompletado del objeto deseado. (Habría que añadir los <p> mencionados anteriormente)
 resultado.addEventListener('mouseover', function(event){
-    busqueda.value = result;
+    busqueda.value = result.split('/')[0];
   })
