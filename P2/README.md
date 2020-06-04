@@ -7,9 +7,9 @@ En la terminal, podremos comprobar en todo momento los recursos enviados del ser
 
 Para conectarnos a dicho servidor, debemos acceder desde el navegador a la página principal a través de la url http://localhost:8000/mi_tienda.
 
-En este caso, la tienda se llama JarJarBinks en relación al gran lider Sith y contiene ropa de merchandising de la saga StarWars.
+En este caso, la tienda se llama JarJarBinks y contiene ropa de merchandising de la saga StarWars.
 
-En el caso de las solicitudes de recursos, podemos comprobar las pet(iciones GET correspondientes a cada recurso en la propia terminal.
+En el caso de las solicitudes de recursos, podemos comprobar las peticiones GET correspondientes a cada recurso en la propia terminal.
 
 La URL disponibles para ser pedidas por el servidor, se encuentran en urls.py y todas deben ser de la forma http://localhost:8000/mi_tienda/ [...]. Una vez recibidas por dicho servidor, este ejecutara la función de views.py correspondiente, renderizando una página dinámica así como realizando alguna transformación en nuestra base de datos.
 

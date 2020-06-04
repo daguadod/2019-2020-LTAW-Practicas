@@ -5,7 +5,7 @@ Para su ejecución, necesitamos todos los archivos que se encuentran en la carpe
 
 Para conectarnos a dicho servidor, debemos acceder desde el navegador a la página principal a través de la url http://localhost:8080/.
 
-En este caso, la tienda se llama JarJarBinks en relación al gran lider Sith y contiene ropa de merchandising de la saga StarWars.
+En este caso, la tienda se llama JarJarBinks y contiene ropa de merchandising de la saga StarWars.
 
 En todo momento, podemos observar en la terminal los recursos pedidos por el cliente al servidor. De donde el servidor creará una respuesta con el mime correspondiente.
 
