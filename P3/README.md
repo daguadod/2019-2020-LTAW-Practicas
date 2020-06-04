@@ -12,7 +12,7 @@ La estructura de la página web es la siguiente:
 
   - Página principal: La cual contiene como objetos interactivos:
 
-    - Una barra de búsqueda en la cual podemos buscar el producto que deseamos. En el momento de introducir 3 o más caracteres de dicho producto, debajo de la barra aparecerá el producto correspondiente como sugerencia. Si pasamos el cursor por encima de dicho producto, la barra de búsqueda se auto rellenará. Esto lo realiza el programa client.js enviando una petición query al servidor cada vez que escribimos en dicha barra.
+    - Una barra de búsqueda en la cual podemos buscar el producto que deseamos. En el momento de introducir 3 o más caracteres de dicho producto, debajo de la barra aparecerá el producto correspondiente como sugerencia. Si pasamos el cursor por encima de dicho producto, la barra de búsqueda se auto rellenará. Esto lo realiza el programa client.js enviando una petición AJAX al servidor cada vez que escribimos en dicha barra.
     Así mismo, si damos a buscar solo con un fragmento del nombre del producto o con el nombre entero, el cliente lo enviará al servidor como petición con formulario y este devolverá la página web del producto deseado.
     En el caso de no encontrarse el producto dentro de la tienda, el servidor nos devolverá una respuesta en formato html de que el producto no existe.
 
@@ -29,9 +29,9 @@ La estructura de la página web es la siguiente:
   - Página de carrito:
 
     En esta página web, nos encontramos con un formulario con los datos de nombre, contraseña, correo y 3 radio buttons del método de pago. Siendo todos los campos obligatorios y debiendo rellenarse en el formato correcto.
-    Al enviar los datos en forma de query a través del programa client2.js, el servidor comparará los datos con los guardados en las cookies del cliente:
+    Al enviar los datos en forma de petición AJAX a través del programa client2.js, el servidor comparará los datos con los guardados en las cookies del cliente:
 
-    - Si tiene una cookie con el cliente, el servidor devolverá como respuesta a la petición query todos los productos que contenga el usuario buscado en la cookie correspondiente y el cliente los representará en el lateral izquierdo de la ventana en forma de ticket de compra virtual con todos los datos proporcionados.
+    - Si tiene una cookie con el cliente, el servidor devolverá como respuesta a la petición AJAX todos los productos que contenga el usuario buscado en la cookie correspondiente y el cliente los representará en el lateral izquierdo de la ventana en forma de ticket de compra virtual con todos los datos proporcionados.
 
     - Si no existe una cookie, aparecerá un mensaje indicando que el usuario que se busca no se ha registrado y debe registrarse primero.
 
